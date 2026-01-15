@@ -6,287 +6,385 @@
   <title>M.L.V.M. EDUCATION CENTRE</title>
 
   <style>
+    *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#222;}
-    header{background:#0b5ed7;color:white;padding:18px 12px;text-align:center;}
-    header h1{margin:0;font-size:28px;}
-    header p{margin:8px 0 0;font-size:14px;opacity:0.95;}
+    a{text-decoration:none}
 
-    nav{background:#083d91;padding:10px;text-align:center;position:sticky;top:0;z-index:50;}
-    nav a{color:white;text-decoration:none;margin:0 12px;font-weight:bold;font-size:14px;}
-    nav a:hover{text-decoration:underline;}
-
-    .hero{
-      padding:30px 15px;
-      text-align:center;
-      background:white;
+    /* Top Bar */
+    .topbar{
+      background:#0b5ed7;color:#fff;
+      display:flex;flex-wrap:wrap;gap:10px;
+      justify-content:space-between;align-items:center;
+      padding:8px 14px;font-size:13px;
     }
+    .topbar .left, .topbar .right{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+    .badge{background:rgba(255,255,255,0.18);padding:6px 10px;border-radius:999px}
 
-    .banner{
-      max-width:1000px;
-      margin:0 auto 18px auto;
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow:0 2px 10px rgba(0,0,0,0.10);
-      background:#e9f0ff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:140px;
+    /* Header */
+    header{
+      background:#fff;
+      padding:14px 14px;
+      border-bottom:1px solid #e9eef7;
+      position:sticky;top:0;z-index:999;
     }
-
-    .banner img{
-      width:100%;
-      height:auto;
-      display:block;
+    .head-wrap{
+      max-width:1100px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
     }
+    .logo{
+      display:flex;align-items:center;gap:10px;
+    }
+    .logo .mark{
+      width:46px;height:46px;border-radius:12px;background:#0b5ed7;
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;
+      box-shadow:0 6px 16px rgba(0,0,0,0.12);
+    }
+    .logo h1{margin:0;font-size:18px}
+    .logo p{margin:4px 0 0;font-size:12px;color:#555}
 
-    .hero h2{font-size:26px;margin:0 0 10px;}
-    .hero p{max-width:850px;margin:auto;font-size:16px;line-height:1.6;}
-    .btn{
-      display:inline-block;
-      margin:12px 6px 0 6px;
+    /* Menu */
+    nav{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    }
+    nav a{
+      padding:10px 12px;border-radius:10px;
+      color:#0b2b55;font-weight:700;font-size:14px;
+    }
+    nav a:hover{background:#eaf2ff}
+
+    /* Container */
+    .container{max-width:1100px;margin:auto;padding:18px 14px;}
+
+    /* Slider */
+    .slider{
       background:#0b5ed7;
-      color:white;
-      padding:10px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:14px;
+      border-radius:18px;overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+      position:relative;
+      min-height:280px;
+      display:flex;align-items:center;
     }
-    .btn.secondary{
-      background:#198754;
+    .slide{
+      width:100%;padding:34px 22px;color:#fff;
+      display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
     }
+    .slide h2{margin:0 0 10px;font-size:28px}
+    .slide p{margin:0;max-width:620px;line-height:1.6}
+    .slide .cta{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;
+    }
+    .btn{
+      display:inline-block;background:#fff;color:#0b5ed7;
+      padding:10px 14px;border-radius:12px;font-weight:800;font-size:14px;
+    }
+    .btn.green{background:#198754;color:#fff}
 
-    .container{max-width:1000px;margin:auto;padding:20px;}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;}
-    .card{
-      background:white;
-      padding:16px;
-      border-radius:12px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    /* Sections */
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;
+      margin-top:16px;
     }
-    .card h3{margin-top:0;}
-    .section-title{margin:22px 0 10px;font-size:22px;}
-    footer{background:#083d91;color:white;text-align:center;padding:14px;margin-top:25px;}
-    .highlight{color:#0b5ed7;font-weight:bold;}
+    .card{
+      background:#fff;border-radius:16px;padding:16px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      border:1px solid #eef2fb;
+    }
+    .card h3{margin:0 0 8px}
+    .muted{color:#555;line-height:1.6;font-size:14px}
+    .title{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      margin:18px 0 10px;
+    }
+    .title h2{margin:0;font-size:22px}
+
+    /* Notice */
+    .notice-list{margin:0;padding-left:18px}
+    .notice-list li{margin:8px 0;line-height:1.5}
 
     /* Gallery */
     .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:12px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;
     }
     .gitem{
-      background:white;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      background:#fff;border-radius:16px;overflow:hidden;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      border:1px solid #eef2fb;
     }
-    .gitem img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      display:block;
-    }
-    .gcap{
-      padding:10px;
-      font-size:14px;
-    }
+    .gitem img{width:100%;height:170px;object-fit:cover;display:block}
+    .gcap{padding:10px;font-size:13px}
 
-    /* WhatsApp Floating Button */
+    /* Footer */
+    footer{
+      background:#083d91;color:#fff;margin-top:18px;
+      padding:18px 14px;
+    }
+    .foot-wrap{max-width:1100px;margin:auto;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .foot-title{font-weight:800;margin:0 0 8px}
+    .foot a{color:#fff;opacity:0.95}
+    .copy{max-width:1100px;margin:12px auto 0;opacity:0.9;font-size:13px;text-align:center}
+
+    /* WhatsApp Floating */
     .wa-float{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      z-index:999;
-      background:#25D366;
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
-      padding:12px 14px;
-      border-radius:999px;
-      box-shadow:0 6px 16px rgba(0,0,0,0.20);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-size:14px;
-    }
-    .wa-float:hover{opacity:0.9;}
-    .wa-dot{
-      width:10px;height:10px;border-radius:50%;
-      background:white;
-      display:inline-block;
+      position:fixed;right:18px;bottom:18px;z-index:9999;
+      background:#25D366;color:#fff;border-radius:999px;
+      padding:12px 14px;font-weight:800;display:flex;gap:8px;align-items:center;
+      box-shadow:0 10px 22px rgba(0,0,0,0.22);
     }
 
-    /* Small note */
-    .note{
-      font-size:13px;
-      color:#444;
-      line-height:1.6;
+    /* Small responsive */
+    @media (max-width:520px){
+      .slide h2{font-size:22px}
+      nav a{font-size:13px;padding:9px 10px}
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>M.L.V.M. EDUCATION CENTRE</h1>
-  <p>Gautam Vihar, Sakrapur, Kanpur Nagar, Uttar Pradesh - 208011</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#admission">Admission</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#facilities">Facilities</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- ✅ WhatsApp Button -->
-<a class="wa-float" href="https://wa.me/+91 6389806891" target="_blank" title="WhatsApp">
-  <span class="wa-dot"></span> WhatsApp
-</a>
-
-<section class="hero" id="home">
-
-  <!-- ✅ School Banner / Logo -->
-  <!-- अगर आपके पास banner image है तो इसे बदल दें -->
-  <!-- Example: banner.jpg को repo में upload करके नीचे src में लिख दें -->
-  <div class="school logo">
-    <!-- Placeholder (आप चाहें तो image लगा दें) -->
-    <div style="padding:28px;text-align:center;">
-      <h2 style="margin:0;color:#083d91;">M.L.V.M. EDUCATION CENTRE</h2>
-      <p style="margin:8px 0 0;color:#333;font-size:14px;">
-        Quality Education | Discipline | Activities
-      </p>
-      <p style="margin:6px 0 0;color:#555;font-size:13px;">
-        (यहाँ आप अपना School Banner/Logo लगा सकते हैं)
-      </p>
+  <!-- ✅ Top Bar -->
+  <div class="topbar">
+    <div class="left">
+      <span class="badge">📞 Call: +91 6389806891</span>
+      <span class="badge">✉️ Email: MLVMEDUCATIONCENTRE@gmail.com</span>
+    </div>
+    <div class="right">
+      <span class="badge">🏫 Classes: Nursery to 10</span>
     </div>
   </div>
 
-  <h2>Welcome to <span class="highlight">M.L.V.M. Education Centre</span></h2>
-  <p>
-    हमारा उद्देश्य बच्चों को गुणवत्तापूर्ण शिक्षा, संस्कार और आत्मविश्वास के साथ आगे बढ़ाना है।  
-    यहाँ कक्षा <b>नर्सरी से 10वीं</b> तक की शिक्षा दी जाती है।
-  </p>
+  <!-- ✅ Header + Menu -->
+  <header>
+    <div class="head-wrap">
+      <div class="logo">
+        <div class="mark">ML</div>
+        <div>
+          <h1>M.L.V.M. EDUCATION CENTRE</h1>
+          <p>Gautam Vihar, Sakrapur, Kanpur Nagar (UP) - 208011</p>
+        </div>
+      </div>
 
-  <!-- ✅ Admission Form Link -->
-  <!-- नीचे Google Form link डाल दीजिए -->
-  <a class="btn secondary" href="https://forms.gle/a8bxUE7JXQp7Ph7U7" target="_blank">
-    Online Admission Form
-  </a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#messages">Messages</a>
+        <a href="#notice">Notice</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <a class="btn" href="#contact">Contact Now</a>
+  <!-- ✅ WhatsApp Button -->
+  <a class="wa-float" href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp</a>
 
-  <p class="note" style="max-width:850px;margin:14px auto 0;">
-    ✅ नोट: Online Admission Form चालू 
-  </p>
-</section>
+  <div class="container" id="home">
 
-<div class="container">
+    <!-- ✅ Slider (SVM Style) -->
+    <div class="slider">
+      <div class="slide">
+        <div>
+          <h2>Welcome to M.L.V.M. Education Centre</h2>
+          <p>
+            यहाँ बच्चों को गुणवत्तापूर्ण शिक्षा, अनुशासन, संस्कार और एक्टिविटी आधारित सीखने का अवसर दिया जाता है।
+            हमारा लक्ष्य हर छात्र को आत्मनिर्भर और सफल बनाना है।
+          </p>
 
-  <h2 class="section-title" id="about">About Our School</h2>
-  <div class="card">
-    <p>
-      <b>M.L.V.M. Education Centre</b> एक अनुशासन और गुणवत्ता आधारित विद्यालय है।  
-      यहाँ बच्चों के सर्वांगीण विकास के लिए पढ़ाई के साथ-साथ खेल, गतिविधियाँ और संस्कार पर विशेष ध्यान दिया जाता है।
-    </p>
+          <div class="cta">
+            <a class="btn green" href="https://forms.gle/XXXXXXXXXXXX" target="_blank">Online Admission Form</a>
+            <a class="btn" href="#contact">Contact Now</a>
+          </div>
+        </div>
+
+        <div class="card" style="max-width:320px;background:rgba(255,255,255,0.15);border:none;color:white;">
+          <h3 style="margin:0 0 6px;">School Highlights ✅</h3>
+          <p class="muted" style="color:white;opacity:0.95;margin:0;">
+            ⭐ Regular Tests<br>
+            ⭐ Discipline Focus<br>
+            ⭐ Activities & Sports<br>
+            ⭐ अनुभवी Teachers
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ About + Quick Info -->
+    <div class="title" id="about">
+      <h2>About Our School</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Who We Are</h3>
+        <p class="muted">
+          M.L.V.M. Education Centre एक अनुशासन व गुणवत्ता आधारित विद्यालय है।
+          यहाँ पढ़ाई के साथ-साथ बच्चों के नैतिक एवं सर्वांगीण विकास पर ध्यान दिया जाता है।
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Classes</h3>
+        <p class="muted">
+          Nursery,PG, LKG, UKG, 1 से 10 तक।<br>
+          हिंदी माध्यम / अंग्रेजी सहायता।
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Admission (Required Documents)</h3>
+        <p class="muted">
+          ✅ Birth Certificate<br>
+          ✅ Aadhar Card<br>
+          ✅ 2 Photos<br>
+          ✅ Previous Marksheet (यदि हो)
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Downloads (PDF)</h3>
+        <p class="muted">
+          <a href="#" class="btn" style="background:#0b5ed7;color:white;">Fee Structure PDF</a>
+          <a href="#" class="btn" style="background:#0b5ed7;color:white;">Academic Calendar PDF</a>
+        </p>
+        <p class="muted" style="margin-top:8px;">
+          (आप PDF upload करके यहाँ लिंक लगा सकते हैं)
+        </p>
+      </div>
+    </div>
+
+    <!-- ✅ Messages -->
+    <div class="title" id="messages">
+      <h2>Messages</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Director’s Message</h3>
+        <p class="muted">
+          हमारे विद्यालय का उद्देश्य बच्चों को ज्ञान के साथ संस्कार देना है।
+          नियमित पढ़ाई, अनुशासन और अभ्यास के साथ हम हर छात्र के उज्ज्वल भविष्य के लिए प्रतिबद्ध हैं।
+        </p>
+        <p class="muted"><b>- Managing Director [ KARAN GAUTAM]</b></p>
+      </div>
+
+      <div class="card">
+        <h3>Principal’s Message</h3>
+        <p class="muted">
+          शिक्षा केवल किताबों तक सीमित नहीं है, यह व्यक्तित्व निर्माण की प्रक्रिया है।
+          हम छात्रों को आत्मविश्वासी, जिम्मेदार और सफल बनाने के लिए सतत प्रयास करते हैं।
+        </p>
+        <p class="muted"><b>- Principal</b></p>
+      </div>
+    </div>
+
+    <!-- ✅ Notice / News -->
+    <div class="title" id="notice">
+      <h2>Notice / Latest Updates</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Notice Board</h3>
+        <ul class="notice-list muted">
+          <li>Admissions Open ✅ (Nursery to 10)</li>
+          <li>अगला यूनिट टेस्ट जल्द शुरू होगा।</li>
+          <li>Parent-Teacher Meeting (PTM) की सूचना जल्द।</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Quick Links</h3>
+        <p class="muted">
+          ✅ Online Admission Form<br>
+          ✅ Syllabus / Books List<br>
+          ✅ School Timing<br>
+          ✅ Contact & Location
+        </p>
+      </div>
+    </div>
+
+    <!-- ✅ Gallery -->
+    <div class="title" id="gallery">
+      <h2>Photo Gallery</h2>
+    </div>
+
+    <div class="gallery">
+      <div class="gitem">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=60" alt="Classroom">
+        <div class="gcap">Classroom Learning</div>
+      </div>
+      <div class="gitem">
+        <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=900&q=60" alt="School Event">
+        <div class="gcap">School Event</div>
+      </div>
+      <div class="gitem">
+        <img src="https://images.unsplash.com/photo-1588072432836-7fb78b47d1f7?auto=format&fit=crop&w=900&q=60" alt="School Building">
+        <div class="gcap">Campus / Building</div>
+      </div>
+      <div class="gitem">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=60" alt="Library">
+        <div class="gcap">Library / Study</div>
+      </div>
+    </div>
+
+    <!-- ✅ Contact -->
+    <div class="title" id="contact">
+      <h2>Contact Us</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>School Address</h3>
+        <p class="muted">
+          <b>M.L.V.M. EDUCATION CENTRE</b><br>
+          Gautam Vihar, Sakrapur, Kanpur Nagar<br>
+          Uttar Pradesh - 208011
+        </p>
+        <p class="muted">
+          <b>Phone:</b> +91 9170729932<br>
+          <b>Email:</b> mlvmeducationcentre@gmail.com
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Google Map "https://share.google/UNpl4g7yhJL7CrHiO"</h3>
+        <p class="muted">
+          आप चाहें तो यहाँ Google Map embed कर सकते हैं।<br>
+          अभी के लिए parents WhatsApp/Call कर सकते हैं ✅
+        </p>
+      </div>
+    </div>
+
   </div>
 
-  <h2 class="section-title" id="admission">Admission Details</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Class Available</h3>
-      <p>Nursery to Class 10</p>
+  <!-- ✅ Footer -->
+  <footer>
+    <div class="foot-wrap">
+      <div class="foot">
+        <p class="foot-title">M.L.V.M. EDUCATION CENTRE</p>
+        <p style="margin:0;opacity:0.95;line-height:1.6;">
+          Quality Education | Discipline | Activities<br>
+          Nursery to Class 10
+        </p>
+      </div>
+      <div class="foot">
+        <p class="foot-title">Quick Links</p>
+        <p style="margin:0;line-height:1.9;">
+          <a href="#about">About</a><br>
+          <a href="#notice">Notice</a><br>
+          <a href="#gallery">Gallery</a><br>
+          <a href="#contact">Contact</a>
+        </p>
+      </div>
+      <div class="foot">
+        <p class="foot-title">Contact</p>
+        <p style="margin:0;line-height:1.8;">
+          +91 9170729932<br>
+          mlvmeducationcentre@gmail.com
+        </p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Documents Required</h3>
-      <p>
-        ✅ Birth Certificate<br>
-        ✅ Aadhar Card<br>
-        ✅ 2 Passport Photos<br>
-        ✅ Previous Marksheet (अगर हो)
-      </p>
-    </div>
-    <div class="card">
-      <h3>Admission Process</h3>
-      <p>
-        1) School Visit<br>
-        2) Form Fill करें<br>
-        3) Document जमा करें<br>
-        4) Confirmation ✅
-      </p>
-    </div>
-  </div>
-
-  <h2 class="section-title" id="gallery">Gallery</h2>
-  <div class="gallery">
-    <!-- ✅ इन photo को बदलने के लिए आप अपने फोटो upload करके नाम रख दें -->
-    <!-- Example: photo1.jpg, photo2.jpg ... और नीचे src में वही नाम डाल दें -->
-    <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=60" alt="School Activity">
-      <div class="gcap">School Activities</div>
-    </div>
-
-    <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=60" alt="Classroom">
-      <div class="gcap">Classroom Learning</div>
-    </div>
-
-    <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=900&q=60" alt="Sports">
-      <div class="gcap">Sports & Games</div>
-    </div>
-
-    <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1588072432836-7fb78b47d1f7?auto=format&fit=crop&w=900&q=60" alt="Function">
-      <div class="gcap">Events & Functions</div>
-    </div>
-  </div>
-
-  <h2 class="section-title" id="facilities">Facilities</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Good Teaching</h3>
-      <p>अनुभवी शिक्षक एवं सरल तरीके से पढ़ाई।</p>
-    </div>
-    <div class="card">
-      <h3>Discipline</h3>
-      <p>अनुशासन पर विशेष ध्यान।</p>
-    </div>
-    <div class="card">
-      <h3>Activities</h3>
-      <p>Sports, प्रतियोगिता, सांस्कृतिक कार्यक्रम।</p>
-    </div>
-    <div class="card">
-      <h3>Result Focus</h3>
-      <p>बेहतर परीक्षा तैयारी और नियमित टेस्ट।</p>
-    </div>
-  
-  <h2 class="section-title" id="contact">Contact Us</h2>
-  <div class="card">
-    <p><b>School Name:</b> M.L.V.M. EDUCATION CENTRE</p>
-    <p><b>Address:</b> Gautam Vihar, Sakrapur, Kanpur Nagar, UP - 208011</p>
-    <p><b>Phone:</b> +91 9170729932 & 6389806891 (WHATSAPP)</p>
-    <p><b>Email:</b> mlvmeducationcentre@gmail.com</p>
-    <p><b>Timing:</b> 8:00 AM to 2:00 PM [OFFICE TIMING] 9:00 AM to 1:00 PM</p>
-
-    <p class="note">
-      ✅ जल्दी Admission के लिए WhatsApp पर message करें।
-    </p>
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2026 M.L.V.M. Education Centre | All Rights Reserved</p>
-</footer>
+    <div class="copy">© 2026 M.L.V.M. Education Centre | All Rights Reserved</div>
+  </footer>
 
 </body>
 </html>
-
-
-
-
