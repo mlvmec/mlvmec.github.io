@@ -3,6 +3,487 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M.L.V.M. EDUCATION CENTRE | Kanpur Nagar</title>
+
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f6f8ff;color:#111;}
+    a{text-decoration:none}
+    html{scroll-behavior:smooth;}
+
+    .topbar{
+      background:linear-gradient(90deg,#0b5ed7,#7c3aed,#f97316);
+      color:#fff;
+      padding:10px 14px;
+      display:flex;gap:10px;flex-wrap:wrap;
+      align-items:center;justify-content:space-between;
+      font-size:13px;
+    }
+    .pill{
+      background:rgba(255,255,255,0.22);
+      padding:6px 10px;border-radius:999px;
+      display:inline-flex;gap:8px;align-items:center;
+    }
+    .pill a{color:#fff;font-weight:800;text-decoration:underline;}
+
+    header{
+      background:#fff;
+      position:sticky;top:0;z-index:999;
+      border-bottom:1px solid #e8eefc;
+    }
+    .head{
+      max-width:1150px;margin:auto;
+      padding:12px 14px;
+      display:flex;justify-content:space-between;align-items:center;
+      gap:12px;flex-wrap:wrap;
+    }
+    .brand{display:flex;align-items:center;gap:10px;}
+    .logo{
+      width:52px;height:52px;border-radius:14px;
+      background:#fff;
+      border:2px solid #eef2fb;
+      overflow:hidden;
+      box-shadow:0 10px 18px rgba(0,0,0,0.10);
+      flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block;}
+    .brand h1{margin:0;font-size:18px;}
+    .brand p{margin:4px 0 0;font-size:12px;color:#555;line-height:1.3;}
+
+    nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    nav a{
+      padding:9px 12px;border-radius:12px;
+      font-weight:800;font-size:14px;color:#0b2b55;
+    }
+    nav a:hover{background:#eef6ff}
+
+    .wrap{max-width:1150px;margin:auto;padding:18px 14px;}
+
+    .hero{
+      border-radius:24px;
+      padding:0;
+      overflow:hidden;
+      box-shadow:0 18px 38px rgba(0,0,0,0.18);
+      background:#0b5ed7;
+    }
+    .hero-img{
+      height:340px;
+      background:url("gate.jpg") center/cover no-repeat;
+      position:relative;
+    }
+    .hero-img::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(135deg, rgba(11,94,215,0.85), rgba(124,58,237,0.65), rgba(249,115,22,0.45));
+    }
+    .hero-content{
+      position:absolute;left:0;right:0;bottom:0;
+      padding:22px 16px;
+      color:#fff;
+      z-index:2;
+    }
+    .hero-content h2{margin:0 0 6px;font-size:28px;}
+    .hero-content p{margin:0;max-width:900px;line-height:1.7;opacity:0.95;font-size:14px;}
+    .btns{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;
+      background:#fff;color:#0b5ed7;
+      padding:10px 14px;border-radius:14px;
+      font-weight:900;font-size:14px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.12);
+    }
+    .btn.green{background:#22c55e;color:#fff}
+    .btn.dark{background:#111;color:#fff}
+    .btn.orange{background:#f97316;color:#fff}
+
+    .title{
+      margin:18px 0 10px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:10px;
+    }
+    .title h2{margin:0;font-size:22px;}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;}
+    .card{
+      background:#fff;border-radius:18px;padding:16px;
+      border:1px solid #eef2fb;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    }
+    .card h3{margin:0 0 8px;}
+    .muted{color:#444;line-height:1.7;font-size:14px;margin:0;}
+
+    .c1{background:linear-gradient(135deg,#e0f2fe,#ffffff)}
+    .c2{background:linear-gradient(135deg,#dcfce7,#ffffff)}
+    .c3{background:linear-gradient(135deg,#ffedd5,#ffffff)}
+    .c4{background:linear-gradient(135deg,#ede9fe,#ffffff)}
+
+    .notice{
+      border-left:5px solid #0b5ed7;
+      background:linear-gradient(135deg,#eef6ff,#ffffff);
+    }
+    .notice ul{margin:0;padding-left:18px;}
+    .notice li{margin:8px 0;line-height:1.5;font-size:14px;color:#333}
+
+    .role{
+      display:inline-block;
+      background:#eef6ff;
+      color:#0b5ed7;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:12px;
+    }
+    .gitem{
+      background:#fff;border-radius:18px;overflow:hidden;
+      border:1px solid #eef2fb;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    }
+    .gitem img{
+      width:100%;height:180px;object-fit:cover;display:block;
+    }
+    .gcap{padding:10px;font-size:13px;color:#333;}
+
+    .float-wrap{
+      position:fixed;right:18px;bottom:18px;z-index:9999;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .float-btn{
+      display:flex;align-items:center;justify-content:center;
+      border-radius:999px;
+      padding:12px 14px;
+      font-weight:900;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(0,0,0,0.22);
+    }
+    .wa{background:#25D366;}
+    .fb{background:#1877F2;}
+
+    footer{
+      margin-top:18px;
+      background:#0b2b55;color:#fff;
+      padding:18px 14px;
+    }
+    .foot{
+      max-width:1150px;margin:auto;
+      display:grid;gap:12px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+    .foot b{display:block;margin-bottom:6px;}
+    .foot a{color:#fff;text-decoration:underline;}
+    .copy{text-align:center;margin-top:12px;opacity:0.9;font-size:13px;}
+
+    @media (max-width:520px){
+      .hero-img{height:280px;}
+      .hero-content h2{font-size:20px;}
+      nav a{font-size:13px;padding:9px 10px;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="pill">📞 Call: <b>9170729932</b></div>
+    <div class="pill">💬 WhatsApp: <b>6389806891</b></div>
+    <div class="pill">✉️ Email:
+      <a href="mailto:mlvmeducationcentre@gmail.com">mlvmeducationcentre@gmail.com</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="head">
+      <div class="brand">
+        <div class="logo">
+          <!-- ✅ यहाँ आपका School Logo लगा दिया गया है -->
+          <img src="logo.png" alt="MLVM School Logo">
+        </div>
+        <div>
+          <h1>M.L.V.M. EDUCATION CENTRE</h1>
+          <p>Gautam Vihar, Sakrapur, Kanpur Nagar, Uttar Pradesh - 208011</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#management">Management</a>
+        <a href="#notice">Notice</a>
+        <a href="#admission">Admission</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="float-wrap">
+    <a class="float-btn wa" href="https://wa.me/916389806891" target="_blank">WhatsApp</a>
+    <a class="float-btn fb" href="https://www.facebook.com/profile.php?id=61583792282055" target="_blank">Facebook</a>
+  </div>
+
+  <div class="wrap" id="home">
+
+    <!-- ✅ HERO (School Gate Photo as Banner) -->
+    <section class="hero">
+      <div class="hero-img">
+        <div class="hero-content">
+          <h2>Welcome to M.L.V.M. Education Centre 🎓</h2>
+          <p>
+            M.L.V.M. Education Centre, Gautam Vihar Sakrapur, Kanpur Nagar में स्थित एक गुणवत्तापूर्ण एवं अनुशासित विद्यालय है।
+            यहाँ Nursery से Class 10 तक बच्चों को बेहतर शिक्षा, संस्कार और आत्मविश्वास के साथ आगे बढ़ाया जाता है।
+          </p>
+
+          <div class="btns">
+            <a class="btn green" href="https://forms.gle/a8bxUE7JXQp7Ph7U7" target="_blank">Online Admission Form</a>
+            <a class="btn orange" href="https://share.google/UNpl4g7yhJL7CrHiO" target="_blank">Open Location</a>
+            <a class="btn dark" href="tel:+919170729932">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="title" id="about">
+      <h2>About Our School</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card c1">
+        <h3>📘 Quality Education</h3>
+        <p class="muted">
+          हमारे विद्यालय में अनुभवी शिक्षकों द्वारा बच्चों को सरल, प्रभावी और समझ में आने वाली पढ़ाई कराई जाती है।
+        </p>
+      </div>
+
+      <div class="card c2">
+        <h3>✅ Discipline & Values</h3>
+        <p class="muted">
+          अनुशासन, नैतिक शिक्षा और संस्कारों के माध्यम से बच्चों के चरित्र निर्माण पर विशेष ध्यान दिया जाता है।
+        </p>
+      </div>
+
+      <div class="card c3">
+        <h3>🏆 Activities & Sports</h3>
+        <p class="muted">
+          खेल-कूद, गतिविधियाँ, प्रतियोगिताएँ और सांस्कृतिक कार्यक्रमों द्वारा बच्चों का सर्वांगीण विकास किया जाता है।
+        </p>
+      </div>
+
+      <div class="card c4">
+        <h3>🎯 Regular Practice</h3>
+        <p class="muted">
+          नियमित टेस्ट, अभ्यास कार्य और मार्गदर्शन से बच्चों की तैयारी मजबूत की जाती है जिससे बेहतर परिणाम मिलें।
+        </p>
+      </div>
+    </div>
+
+    <div class="title" id="management">
+      <h2>School Management</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="role">Principal</span>
+        <h3>Mr. R.P. Gautam</h3>
+        <p class="muted">विद्यालय में अनुशासन, गुणवत्ता और बच्चों की शिक्षा में सुधार के लिए निरंतर मार्गदर्शन।</p>
+      </div>
+
+      <div class="card">
+        <span class="role">Manager</span>
+        <h3>Mr. H.L. Gautam</h3>
+        <p class="muted">विद्यालय संचालन, व्यवस्था एवं अभिभावकों से समन्वय हेतु निरंतर प्रयास।</p>
+      </div>
+
+      <div class="card">
+        <span class="role">Managing Director</span>
+        <h3>Mr. Karan Gautam</h3>
+        <p class="muted">विद्यालय के विकास, शिक्षा की गुणवत्ता और विद्यार्थियों के उज्ज्वल भविष्य के लिए समर्पित।</p>
+      </div>
+    </div>
+
+    <div class="title" id="notice">
+      <h2>Notice Board / Latest Updates</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card notice">
+        <h3>📌 Important Notice</h3>
+        <ul>
+          <li>Admissions Open ✅ (Nursery to Class 10)</li>
+          <li>Monthly Test Schedule जल्द जारी किया जाएगा।</li>
+          <li>Parent–Teacher Meeting (PTM) की सूचना जल्द दी जाएगी।</li>
+          <li>School timing: 8:00 AM to 2:00 PM</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Admission Poster</h3>
+        <p class="muted">आपका official admission poster नीचे दिख रहा है ✅</p>
+        <div style="margin-top:10px;">
+          <img src="poster.jpg" alt="Admission Poster" style="width:100%;border-radius:14px;border:1px solid #eef2fb;">
+        </div>
+      </div>
+    </div>
+
+    <div class="title" id="admission">
+      <h2>Admission Details</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📌 Classes Available</h3>
+        <p class="muted">Nursery, LKG, UKG, Class 1 से Class 10 तक</p>
+      </div>
+
+      <div class="card">
+        <h3>📄 Documents Required</h3>
+        <p class="muted">
+          ✅ Birth Certificate<br>
+          ✅ Aadhar Card<br>
+          ✅ 2 Passport Photos<br>
+          ✅ Previous Marksheet (यदि हो)
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📝 Admission Process</h3>
+        <p class="muted">
+          1) School Visit / Contact करें<br>
+          2) Form Fill करें (Online/Offline)<br>
+          3) Documents जमा करें<br>
+          4) Admission Confirm ✅
+        </p>
+      </div>
+    </div>
+
+    <div class="title" id="gallery">
+      <h2>Photo Gallery</h2>
+    </div>
+
+    <div class="gallery">
+      <div class="gitem">
+        <img src="photo1.jpg" alt="Students Activity">
+        <div class="gcap">Students Activities & Assembly</div>
+      </div>
+
+      <div class="gitem">
+        <img src="photo2.jpg" alt="Certificate Distribution">
+        <div class="gcap">Certificate Distribution Program</div>
+      </div>
+
+      <div class="gitem">
+        <img src="gate.jpg" alt="School Gate">
+        <div class="gcap">School Entrance / Campus View</div>
+      </div>
+
+      <div class="gitem">
+        <img src="poster.jpg" alt="Admission Poster">
+        <div class="gcap">Admission Open Poster</div>
+      </div>
+    </div>
+
+    <div class="title" id="location">
+      <h2>School Location</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📍 Find Us</h3>
+        <p class="muted">
+          नीचे दिए गए बटन से आप स्कूल की लोकेशन आसानी से खोल सकते हैं।
+        </p>
+        <div style="margin-top:10px;">
+          <a class="btn orange" href="https://share.google/UNpl4g7yhJL7CrHiO" target="_blank">Open Location</a>
+        </div>
+        <p class="muted" style="margin-top:10px;">
+          Address: Gautam Vihar, Sakrapur, Kanpur Nagar, UP - 208011
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🗺️ Quick Direction</h3>
+        <p class="muted">
+          Parents & Students आसानी से Google Map पर direction लेकर स्कूल तक पहुँच सकते हैं ✅
+        </p>
+        <p class="muted" style="margin-top:10px;">
+          ✅ WhatsApp Support: <b>6389806891</b><br>
+          ✅ Call Support: <b>9170729932</b>
+        </p>
+      </div>
+    </div>
+
+    <div class="title" id="contact">
+      <h2>Contact Us</h2>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🏫 School Address</h3>
+        <p class="muted">
+          <b>M.L.V.M. EDUCATION CENTRE</b><br>
+          Gautam Vihar, Sakrapur, Kanpur Nagar<br>
+          Uttar Pradesh - 208011
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>📞 Contact Details</h3>
+        <p class="muted">
+          Mobile: <b>9170729932</b><br>
+          WhatsApp: <b>6389806891</b><br>
+          Email: <a href="mailto:mlvmeducationcentre@gmail.com"><b>mlvmeducationcentre@gmail.com</b></a><br>
+          Facebook: <a href="https://www.facebook.com/profile.php?id=61583792282055" target="_blank"><b>Visit Page</b></a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <b>M.L.V.M. EDUCATION CENTRE</b>
+        Quality Education | Discipline | Activities<br>
+        Nursery to Class 10
+      </div>
+
+      <div>
+        <b>Quick Links</b>
+        <a href="https://forms.gle/a8bxUE7JXQp7Ph7U7" target="_blank">Online Admission Form</a><br>
+        <a href="https://share.google/UNpl4g7yhJL7CrHiO" target="_blank">School Location</a><br>
+        <a href="https://www.facebook.com/profile.php?id=61583792282055" target="_blank">Facebook Page</a>
+      </div>
+
+      <div>
+        <b>Contact</b>
+        Call: 9170729932<br>
+        WhatsApp: 6389806891<br>
+        Email: mlvmeducationcentre@gmail.com
+      </div>
+    </div>
+
+    <div class="copy">
+      © 2026 M.L.V.M. Education Centre | All Rights Reserved
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  
   
   <title>M.L.V.M. EDUCATION CENTRE</title>
@@ -660,5 +1141,6 @@ Holiday List will be shared on school notice board</h2>
 
 </body>
 </html>
+
 
 
